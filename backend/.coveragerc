@@ -1,0 +1,6 @@
+[run]
+source = stocker
+omit = 
+    tests/*
+    autoapp.py
+
