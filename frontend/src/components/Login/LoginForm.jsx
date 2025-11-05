@@ -6,10 +6,10 @@ import Logo from '../Logo';
 const LoginForm = () => {
   return (
     <Box className='login-container' component='form' noValidate autoComplete='off'>
-      <div className='logo-container'>
+      <div className='title-container'>
         <Logo />
       </div>
-      <div>
+      <div className='input-container'>
         <TextField className='input' label='Username' variant='outlined' />
         <TextField className='input' label='Password' variant='outlined' />
       </div>
