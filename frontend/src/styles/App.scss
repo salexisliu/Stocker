@@ -1,8 +1,54 @@
+@import './partials/variables';
+@import './partials/dashboard';
+@import './partials/login';
+@import './partials/register';
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.tempnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  background-color: rgb(192, 188, 188);
+}
+
+.tempnav-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  background-color: rgb(222, 189, 189);
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 .logo {
