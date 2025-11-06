@@ -85,7 +85,9 @@ const Logo = () => {
           />
           {/* Smile */}
           <g className='smile'>
-            <path d='M207.51 491C290.203 568.036 330.952 562.613 423.51 493' stroke='black' strokeWidth='6' />
+            <text x='315' y='530' fontSize='100' fontWeight='bold' fill='black' textAnchor='middle'>
+              C
+            </text>
           </g>
         </g>
 
