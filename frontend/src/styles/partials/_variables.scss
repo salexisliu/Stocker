@@ -1,13 +1,28 @@
 // Font
 $font-family: 'Balsamiq Sans', system-ui, sans-serif;
 
-// Colors
-$primary-color: #ffffff;
-$primary-color-two: #947a7a;
-$secondary-color: #1F1F1F;
-$secondary-color-two: #3D3D3D;
-$tertiary-color: #947a7a;
-$tertiary-color-two: #3D3D3D;
+// Colors - in order of light to dark
+// off-white 
+$primary-color: #FAF8F4;
+// darker shades of off-white
+
+// light beige
+$secondary-color: #f3eee7;
+// darker beige
+$secondary-color-two: #e5ded4;
+
+// sand
+$tertiary-color: #d8c3a5;
+// darker shades of sand color
+
+$highlight-color: #b0845c;
+$highlight-color-two: #946846;
+
+// text colors
+$text-primary-color: #1f1f1f;
+$text-secondary-color: #6b6258;
+
+
 
 $form-border-width: 1.2px;
 $form-border-color: rgb(26, 26, 26, 0.4);
