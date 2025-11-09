@@ -1,5 +1,6 @@
 import os
-from flask import Flask, jsonify, send_from_directory
+from apiflask import APIFlask
+from flask import jsonify, send_from_directory
 from flask_cors import CORS
 from config import config
 from routes import food_items_bp, shopping_lists_bp, households_bp
@@ -8,11 +9,14 @@ from routes import food_items_bp, shopping_lists_bp, households_bp
 def create_app(config_name='development'):
     if config_name == 'production':
         frontend_dist = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'frontend', 'dist')
-        app = Flask(__name__, static_folder=frontend_dist, static_url_path='')
+        app = APIFlask(__name__, static_folder=frontend_dist, static_url_path='')
     else:
-        app = Flask(__name__, static_folder=None)
+        app = APIFlask(__name__, static_folder=None)
     
-    app.config.from_object(config[config_name])   # via current_app.config (get_db())
+    app.config.from_object(config[config_name])
+    
+    app.title = "Pantry App API"
+    app.version = "1.0.0"
   
     app.url_map.strict_slashes = False
     CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
