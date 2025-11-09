@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Install mise tools
+echo "Installing mise tools..."
+mise install
+
 # Activate mise environment
 eval "$(mise activate bash)"
 
