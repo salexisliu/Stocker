@@ -1,6 +1,8 @@
 from contextlib import contextmanager
+from functools import wraps
 import mysql.connector
-from flask import current_app
+from flask import current_app, jsonify
+from apiflask import APIBlueprint
 
 
 def get_db():
@@ -27,3 +29,29 @@ def db_cursor():
             cursor.close()
         if 'conn' in locals():
             conn.close()
+
+
+def create_api_blueprint(name, url_prefix, import_name=None):
+    if import_name is None:
+        import inspect
+        frame = inspect.currentframe().f_back
+        import_name = frame.f_globals.get('__name__', name)
+    return APIBlueprint(name, import_name, url_prefix=url_prefix)
+
+
+def document_api_route(bp, method, path, summary, description=None, **kwargs):
+    def decorator(f):
+        route_decorator = getattr(bp, method.lower())
+        doc_decorator = bp.doc(summary=summary, description=description or summary)
+        return route_decorator(path, **kwargs)(doc_decorator(f))
+    return decorator
+
+
+def handle_db_error(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+    return decorated_function
