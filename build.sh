@@ -5,6 +5,9 @@ set -e
 echo "Installing mise tools..."
 mise install || true
 
+# Activate mise environment
+eval "$(mise activate bash)"
+
 # Build frontend
 echo "Building frontend..."
 cd frontend

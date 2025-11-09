@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Activate mise environment
+eval "$(mise activate bash)"
+
 if [ ! -d "frontend/dist" ]; then
     echo "Frontend not built, building now..."
     cd frontend
